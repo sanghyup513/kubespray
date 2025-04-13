@@ -1,0 +1,8 @@
+[kube_control_plane]
+node2 ansible_host=192.168.128.12  # ip=10.3.0.1 etcd_member_name=etcd1
+
+[etcd:children]
+kube_control_plane
+
+[kube_node]
+node2 ansible_host=192.168.128.12  # ip=10.3.0.4
