@@ -1,0 +1,13 @@
+---
+- name: List Kubernetes namespaces using kubeconfig
+  hosts: localhost
+  gather_facts: no
+  tasks:
+    - name: List all namespaces in the cluster
+      kubernetes.core.k8s_info:
+        kind: Namespace
+      register: result
+
+    - name: Show the namespaces
+      debug:
+        var: result.resources
